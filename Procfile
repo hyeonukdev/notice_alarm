@@ -1,1 +1,1 @@
-clock: python notice_alarm.py
+clock: python new_notice_alaram_bot.py

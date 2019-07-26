@@ -28,7 +28,7 @@ def notice():
     print(latestlink)
     url = 'https://www.konyang.ac.kr' + latestlink
 
-    with open('./latest.txt', 'r+', 'utf8') as f_read:
+    with open('./latest.txt', 'r+', encoding='utf-8') as f_read:
         before = f_read.readline()
         if before != latest:
             bot.sendMessage(chat_id=chat_id, text='새 글이 올라왔어요!')
@@ -38,7 +38,7 @@ def notice():
             bot.sendMessage(chat_id=chat_id, text='새 글이 없어요 ㅠㅠ')   
         f_read.close()
 
-    with open('./latest.txt', 'w+', 'utf8') as f_write:
+    with open('./latest.txt', 'w+', encoding='utf-8') as f_write:
         f_write.write(latest)
         f_write.close()
 
