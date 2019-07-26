@@ -5,10 +5,10 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 sched = BlockingScheduler()
 
-# @sched.scheduled_job('interval', minutes=1)
-# def timed_job():
-#     notice()
-#     print('This job is run every 1 minutes.')
+@sched.scheduled_job('interval', minutes=1)
+def timed_job():
+    notice()
+    print('This job is run every 1 minutes.')
 
 def notice():
     bot = telegram.Bot(token='849308859:AAF7aPnWtSjI8evIQIU4od1tA6vZgpEwjzg')
@@ -41,5 +41,4 @@ def notice():
         f_write.write(latest)
         f_write.close()
 
-# sched.start()
-notice()
+sched.start()
