@@ -6,7 +6,8 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', hour=12)
+# @sched.scheduled_job('cron', hour=12)
+@sched.scheduled_job('interval', minutes=1)
 def timed_job():
     notice()
 
@@ -27,7 +28,7 @@ def notice():
     print(latestlink)
     url = 'https://www.konyang.ac.kr' + latestlink
 
-    with open('./latest.txt', 'r+', encoding='utf-8') as f_read:
+    with open('./notice_latest.txt', 'r+', encoding='utf-8') as f_read:
         before = f_read.readline()
         if before != latest:
             bot.sendMessage(chat_id=chat_id, text='새 글이 올라왔어요!')
@@ -37,8 +38,10 @@ def notice():
             bot.sendMessage(chat_id=chat_id, text='새 글이 없어요 ㅠㅠ')   
         f_read.close()
 
-    with open('./latest.txt', 'w+', encoding='utf-8') as f_write:
+    with open('./notice_latest.txt', 'w+', encoding='utf-8') as f_write:
         f_write.write(latest)
         f_write.close()
 
 sched.start()
+
+#heroku ps:scale clock=1
