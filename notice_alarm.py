@@ -2,7 +2,15 @@ import requests
 from bs4 import BeautifulSoup
 import os
 import telegram
+from apscheduler.schedulers.blocking import BlockingScheduler
 
+sched = BlockingScheduler()
+
+@sched.scheduled_job('interval', minutes=3)
+def timed_job():
+    print('This job is run every three minutes.')
+
+sched.start()
 
 bot = telegram.Bot(token='849308859:AAF7aPnWtSjI8evIQIU4od1tA6vZgpEwjzg')
 chat_id = bot.getUpdates()[-1].message.chat.id
