@@ -6,7 +6,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', hour=14)
+@sched.scheduled_job('cron', day_of_week='mon-fri', hour=14)
 # @sched.scheduled_job('interval', minutes=1)
 def timed_job():
     notice()
@@ -16,7 +16,7 @@ def notice():
     chat_id = bot.getUpdates()[-1].message.chat.id
 
     req = requests.get('https://www.konyang.ac.kr/cop/bbs/BBSMSTR_000000000582/selectBoardList.do')
-    req.encoding = 'utf-8' # Clien에서 encoding 정보를 보내주지 않아 encoding옵션을 추가해줘야합니다.
+    req.encoding = 'utf-8'
 
     html = req.text
     soup = BeautifulSoup(html, 'html.parser')
