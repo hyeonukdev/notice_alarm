@@ -6,7 +6,7 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', day_of_week='mon-fri', hour=16, minute=10)
+@sched.scheduled_job('cron', day_of_week='mon-fri', hour=14)
 def timed_job():
     notice()
 
