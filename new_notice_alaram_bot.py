@@ -14,7 +14,7 @@ def timed_job():
 def notice():
     bot = telegram.Bot(token='849308859:AAF7aPnWtSjI8evIQIU4od1tA6vZgpEwjzg')
     # chat_id = bot.getUpdates()[-1].message.chat.id
-    chat_id = '-1001227203630'
+    chat_id = '-380711763'
 
     req = requests.get('https://www.konyang.ac.kr/cop/bbs/BBSMSTR_000000000582/selectBoardList.do')
     req.encoding = 'utf-8'
