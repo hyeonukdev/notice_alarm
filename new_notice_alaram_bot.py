@@ -6,14 +6,14 @@ from apscheduler.schedulers.blocking import BlockingScheduler
 
 sched = BlockingScheduler()
 
-@sched.scheduled_job('cron', day_of_week='mon-fri', hour=14)
+@sched.scheduled_job('cron', day_of_week='mon-fri', hour=17, minutes=20)
 def timed_job():
     notice()
 
 def notice():
     bot = telegram.Bot(token='849308859:AAF7aPnWtSjI8evIQIU4od1tA6vZgpEwjzg')
     # chat_id = bot.getUpdates()[-1].message.chat.id
-    chat_id = '-380711763'
+    chat_id = '-1001437224598'
 
     req = requests.get('https://www.konyang.ac.kr/cop/bbs/BBSMSTR_000000000582/selectBoardList.do')
     req.encoding = 'utf-8'
