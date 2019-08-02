@@ -43,6 +43,6 @@ def notice():
         f_write.write(latest)
         f_write.close()
 
-# sched.start()
-notice()
+sched.start()
+# notice()
 #heroku ps:scale clock=1
