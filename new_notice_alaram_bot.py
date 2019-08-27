@@ -46,3 +46,4 @@ def notice():
 sched.start()
 # notice()
 #heroku ps:scale clock=1
+# heroku git:clone -a limitless-cove-32728 파일체크
